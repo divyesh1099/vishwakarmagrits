@@ -1,1 +1,1 @@
-web: waitress-serve vishwakarmagrits.wsgi:application
+web: gunicorn vishwakarma.wsgi
