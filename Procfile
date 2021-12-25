@@ -1,1 +1,1 @@
-web: gunicorn vishwakarma.wsgi
+web: gunicorn vishwakarmagrits.wsgi
