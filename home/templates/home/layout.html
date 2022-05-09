@@ -33,4 +33,23 @@
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{% static 'assets/js/script.min.js' %}"></script>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyBRZc43FDnSiXfIT1HkPMdt9uDKAoQDct0",
+      authDomain: "vishwakarmagrits.firebaseapp.com",
+      projectId: "vishwakarmagrits",
+      storageBucket: "vishwakarmagrits.appspot.com",
+      messagingSenderId: "476979761971",
+      appId: "1:476979761971:web:5ce67dd318144a19a42446"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+  </script>
 </html>
