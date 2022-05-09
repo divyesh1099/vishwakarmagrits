@@ -1,2 +1,2 @@
 # vishwakarmagrits
-App for dinner reservation.
+App for dinner details for family
