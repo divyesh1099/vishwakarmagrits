@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    {% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>
+        Vishwakarmagrits
+    </title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
+        <div class="container"><a class="navbar-brand" href="{% url 'home:index' %}">Vishwakarmagrits</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item nav-link"><a class="nav-link active" href="{% url 'home:index' %}#about">About</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:index' %}#todaysmeals">Today's Meals</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:index' %}#sharemymeal">Share Meal</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="#contact">contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</head>
+
+<body id="page-top" data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="77">
+    {% block body %}
+    {% endblock %}
+    
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'assets/js/script.min.js' %}"></script>
+</html>

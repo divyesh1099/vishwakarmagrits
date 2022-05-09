@@ -1,0 +1,48 @@
+{% load static %}
+{% include 'home/layout.html' %}
+
+{% block body %}
+<div class="mt-4">
+    <section class="text-center content-section" id="meal" style="background:url({{ meal.image.url }}) no-repeat center;">
+        <h1>{{ meal.type }}</h1>
+        <small>Meal for {{ meal.date }}, {{ meal.time }}</small>
+    </section>
+    <section class="text-center content-section" id="items">
+        <h1>Items of the Meal</h1>
+        <div class="container">
+
+            <div class="card-deck row">
+                {% for item in meal.items.all %}
+                <div class="col">
+                    <a href="{% url 'home:item' item.name %}">
+                        <div class="card">
+                      <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
+                      <div class="card-body">
+                        <h1 class="card-title font-weight-bold text-dark">{{ item.name }}</h1>
+                      </div>                          
+                    </div>
+                    </a>
+                </div>
+                {% endfor %}
+              </div>
+        </div>
+    </section>
+    <section class="text-center content-section" id="contact" style="background-image:url({% static 'assets/basicimages/contact.png' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Contact Developer</h2>
+                    <p>Feel free to star this repository on GitHub<a href="https://github.com/divyesh1099/vishwakarmagrits" target="_blank">&nbsp;Vishwakarmagrits</a>&nbsp;to show some love and support</p>
+                    <ul class="list-inline banner-social-buttons">
+                        <li class="list-inline-item">&nbsp;<a href="https://www.linkedin.com/in/divyesh-vishwakarma-621197175/" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-linkedin fa-fw"></i><span class="network-name">&nbsp; Linkedin</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="https://twitter.com/divyesh62121377" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-twitter fa-fw"></i><span class="network-name">&nbsp;Twitter</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="https://github.com/divyesh1099" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-github fa-fw"></i><span class="network-name">&nbsp;github</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="tel:+919920192856" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-phone fa-fw"></i><span class="network-name">&nbsp;phone</span></button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+{% endblock %}

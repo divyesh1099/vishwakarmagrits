@@ -1,1 +1,71 @@
-<h1>HELLO WORLD</h1>
+{% load static %}
+{% include 'home/layout.html' %}
+
+{% block body %}
+<header class="masthead" style="background-image:url({% static 'assets/basicimages/introimage.png' %});">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="brand-heading">vishwakarmagrits</h1>
+                    <p class="intro-text">Simple way to share food plans in the family</p><a class="btn btn-link btn-circle" role="button" href="#about"><i class="fa fa-angle-double-down animated"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+    <section class="text-center content-section" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>About Vishwakarmagrits</h2>
+                    <p>Vishwakarmagrits is a web app to share that will you or how much you want to eat and you cane share your meal on &nbsp;<a href="#sharemymeal">the share my meal page</a>. The project is open source, and you can use it for any purpose, personal or commercial.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="text-center content-section" id="todaysmeals" style="background-image:url({% static 'assets/basicimages/meals.png' %})">
+        <div class="container">
+            <h2>Today's Meals</h2>
+                    <div class="card-deck row">
+                        {% for meal in meals %}
+                        <div class="col">
+                            <a href="{% url 'home:meal' meal.type %}">
+                                <div class="card">
+                              <img class="card-img-top" src="{{ meal.image.url }}" alt="Card image cap">
+                              <div class="card-body">
+                                <h1 class="card-title font-weight-bold text-dark">{{ meal.type }}</h1>
+                              </div>                          
+                            </div>
+                            </a>
+                        </div>
+                        {% endfor %}                                               
+                      </div>
+                    <!-- <p>Vishwakarmagrits is a free Bootstrap theme. It can be yours right now, simply download the template on&nbsp;<a href="#">the preview page</a>. The theme is open source, and you can use it for any purpose, personal or commercial.</p> -->
+        </div>
+    </section>
+    <section class="text-center download-section content-section" id="sharemymeal">
+        <div class="container">
+            <div class="col-lg-8 mx-auto">
+                <h1>Share My Meal </h1>
+                <p>You can Share your meal here on the </p><button class="btn btn-primary btn-lg btn-default" type="button">Share My Meal Page</button>
+            </div>
+        </div>
+    </section>
+    <section class="text-center content-section" id="contact" style="background-image:url({% static 'assets/basicimages/contact.png' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Contact Developer</h2>
+                    <p>Feel free to star this repository on GitHub<a href="https://github.com/divyesh1099/vishwakarmagrits" target="_blank">&nbsp;Vishwakarmagrits</a>&nbsp;to show some love and support</p>
+                    <ul class="list-inline banner-social-buttons">
+                        <li class="list-inline-item">&nbsp;<a href="https://www.linkedin.com/in/divyesh-vishwakarma-621197175/" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-linkedin fa-fw"></i><span class="network-name">&nbsp; Linkedin</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="https://twitter.com/divyesh62121377" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-twitter fa-fw"></i><span class="network-name">&nbsp;Twitter</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="https://github.com/divyesh1099" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-github fa-fw"></i><span class="network-name">&nbsp;github</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="tel:+919920192856" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-phone fa-fw"></i><span class="network-name">&nbsp;phone</span></button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
