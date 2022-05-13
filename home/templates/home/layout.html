@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cabin:700&amp;display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
     <nav class="navbar navbar-light navbar-expand-md fixed-top" id="mainNav">
         <div class="container"><a class="navbar-brand" href="{% url 'home:index' %}">Vishwakarmagrits</a><button data-bs-toggle="collapse" class="navbar-toggler navbar-toggler-right" data-bs-target="#navbarResponsive" type="button" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation" value="Menu"><i class="fa fa-bars"></i></button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -20,6 +21,13 @@
                     <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:index' %}#todaysmeals">Today's Meals</a></li>
                     <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:index' %}#sharemymeal">Share Meal</a></li>
                     <li class="nav-item nav-link"><a class="nav-link" href="#contact">contact</a></li>
+                    {% if user.is_authenticated %}
+                    <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:view_profile' %}">{{ user.username }}</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:logout' %}">Logout</a></li>
+                    {% else %}
+                    <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:login' %}">Login</a></li>
+                    <li class="nav-item nav-link"><a class="nav-link" href="{% url 'home:signup' %}">Sign Up</a></li>
+                    {% endif %}
                 </ul>
             </div>
         </div>

@@ -1,0 +1,72 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}
+GoParty | Sign Up
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="{% static 'home.css' %}">
+{% if success %}
+<div class="container">
+    <div class="alert alert-success" role="alert">{{ success }}</div>
+</div>
+{% endif %}
+{% if error %}
+<div class="container">
+    <div class="alert alert-danger" role="alert">{{ error }}</div>
+</div>
+{% endif %}
+{% if message %}
+<div class="container">
+    <div class="alert alert-primary" role="alert">{{ message }}</div>
+</div>
+{% endif %}
+    <div class="wrapper">
+        <div class="logo">
+            <img src="{% static 'logo.png' %}" alt="">
+        </div>
+        <div class="text-center mt-4 name">
+            Sign Up to GoParty
+        </div>
+        <form class="p-3 mt-3" method="post" action="{% url 'home:signup' %}">
+            {% csrf_token %}
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-user"></span>
+                <input type="text" name="username" id="username" placeholder="Username">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="far fa-envelope"></span>
+                <input type="email" name="email" id="email" placeholder="Email Id">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password" id="pwd" placeholder="New Password">
+            </div>
+            <div class="form-field d-flex align-items-center">
+                <span class="fas fa-key"></span>
+                <input type="password" name="password2" id="pwd2" placeholder="Confirm Password">
+            </div>
+            <button class="btn mt-3 btn-success" type="submit">Sign Up</button>
+        </form>
+        <div class="text-center fs-6">
+            <a href="{% url 'home:login' %}">Already Have an Account?</a> instead <a href="{% url 'home:login' %}">Login</a>
+        </div>
+    </div>
+    <section class="text-center content-section" id="contact" style="background-image:url({% static 'assets/basicimages/contact.png' %});">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Contact Developer</h2>
+                    <p>Feel free to star this repository on GitHub<a href="https://github.com/divyesh1099/vishwakarmagrits" target="_blank">&nbsp;Vishwakarmagrits</a>&nbsp;to show some love and support</p>
+                    <ul class="list-inline banner-social-buttons">
+                        <li class="list-inline-item">&nbsp;<a href="https://www.linkedin.com/in/divyesh-vishwakarma-621197175/" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-linkedin fa-fw"></i><span class="network-name">&nbsp; Linkedin</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="https://twitter.com/divyesh62121377" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-twitter fa-fw"></i><span class="network-name">&nbsp;Twitter</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="https://github.com/divyesh1099" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-github fa-fw"></i><span class="network-name">&nbsp;github</span></button></a></li>
+                        <li class="list-inline-item">&nbsp;<a href="tel:+919920192856" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-phone fa-fw"></i><span class="network-name">&nbsp;phone</span></button></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

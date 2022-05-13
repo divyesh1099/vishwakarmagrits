@@ -1,0 +1,49 @@
+{% extends 'home/layout.html' %}
+{% load static %}
+
+{% block title %}
+GoParty | Edit Profile
+{% endblock %}
+
+{% block body %}
+<div style="margin-top: 5rem;">
+  <div class="card text-white m-auto my-2" style="max-width: 23.5rem; background-color: #42d3ac;">
+      <div class="card-header font-weight-bold text-center">
+          <h1>Edit Profile</h1>
+      </div>
+      <form action="{% url 'home:edit_profile' %}" enctype="multipart/form-data" method="post">
+          {% csrf_token %}
+          <div class="card-body col-lg-12 col-md-12 col-sm-12 form-group">
+            <img src="{{ profile.image.url }}" height="330" width="343" alt="" class="row-12 img-thumbnail">
+            <div class="custom-file">
+              <input type="file" class="form-control-file" id="exampleFormControlFile1" name="image">
+            </div>
+            <input type="text" name="username" id="username" class="row-12 form-control" value="{{ user.username }}" placeholder="Username">
+            <input type="email" name="email" id="email" class="row-12 form-control" value="{{ user.email }}" placeholder="Email">
+            <div class="row-12 d-flex justify-content-between">
+                <button type="submit" class="btn btn-success col-md-6 col-sm-12">Submit</button>
+                <a href="{% url 'home:index' %}" class="btn btn-warning col-md-6 col-sm-12">Cancel</a>
+            </div>
+            <a href="{% url 'home:delete_profile' %}" class="btn btn-danger col-lg-12 col-md-12 col-sm-12 d-flex justify-content-center">Delete Profile</a>
+          </div>
+      </form>
+  </div>
+
+</div>
+<section class="text-center content-section" id="contact" style="background-image:url({% static 'assets/basicimages/contact.png' %});">
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 mx-auto">
+              <h2>Contact Developer</h2>
+              <p>Feel free to star this repository on GitHub<a href="https://github.com/divyesh1099/vishwakarmagrits" target="_blank">&nbsp;Vishwakarmagrits</a>&nbsp;to show some love and support</p>
+              <ul class="list-inline banner-social-buttons">
+                  <li class="list-inline-item">&nbsp;<a href="https://www.linkedin.com/in/divyesh-vishwakarma-621197175/" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-linkedin fa-fw"></i><span class="network-name">&nbsp; Linkedin</span></button></a></li>
+                  <li class="list-inline-item">&nbsp;<a href="https://twitter.com/divyesh62121377" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-twitter fa-fw"></i><span class="network-name">&nbsp;Twitter</span></button></a></li>
+                  <li class="list-inline-item">&nbsp;<a href="https://github.com/divyesh1099" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-github fa-fw"></i><span class="network-name">&nbsp;github</span></button></a></li>
+                  <li class="list-inline-item">&nbsp;<a href="tel:+919920192856" target="_blank"><button class="btn btn-primary btn-lg btn-default" type="button"><i class="fa fa-phone fa-fw"></i><span class="network-name">&nbsp;phone</span></button></a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</section>
+{% endblock %}
